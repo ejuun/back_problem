@@ -1,10 +1,9 @@
-N = int(input())
-online_user = []
+N= int(input())
+word_set = set()
 for i in range(N):
-    age, name = map(str,input().split())
-    online_user.append((age,name))
-
-sort_user = sorted(online_user, key= lambda x : (int(x[0])))
-
-for user in sort_user:
-    print(user[0], user[1])
+    word = input()
+    word_set.add(word)
+word_list = list(word_set)
+sort_list = sorted(word_list, key= lambda x : (len(x),x[0],x))
+for word in sort_list:
+    print(word)

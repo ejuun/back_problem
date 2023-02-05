@@ -1,5 +1,5 @@
 N = int(input())
-num_list = [0] * 10000
+num_list = [0] * 10000000
 for i in range(N):
     num = int(input())
     num_list[i] = num
