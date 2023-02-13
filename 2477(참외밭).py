@@ -1,36 +1,39 @@
 N = int(input())
-area_list = []
-dirc_list = []
-garo_list = []
-sero_list = []
-empty = 0
+po_l = []
+si_st = []
+for _ in range(6):
+    which, size = map(int, input().split())
+    po_l.append(which)
+    si_st.append(size)
 
-for i in range(6):
-    direct, length = map(int, input().split())
-    area_list.append((direct, length))
-    dirc_list.append(direct)
+    empty = 0
 
-    if direct == 1 or direct == 2:
-        garo_list.append((length, direct))
-    else:
-        sero_list.append((length, direct))
+if po_l.count(2) == 1 and po_l.count(4) == 1:
+    for i in range(-1, len(po_l)-1):
+        if po_l[i] == 1 and po_l[i+1] == 3:
+            empty = si_st[i] * si_st[i+1]
+    total = si_st[po_l.index(2)] * si_st[po_l.index(4)]
+    ans = total -empty
 
+elif po_l.count(1) == 1 and po_l.count(4) == 1:
+    for i in range(-1, len(po_l)-1):
+        if po_l[i] == 3 and po_l[i+1] == 2:
+            empty = si_st[i] * si_st[i+1]
+    total = si_st[po_l.index(1)] * si_st[po_l.index(4)]
+    ans = total - empty
 
-#최대 가로 길이 구하기
-max_garo = -1
-for i in range(len(garo_list)):
-    if max_garo < garo_list[i][0]:
-        max_garo = garo_list[i][0]
+elif po_l.count(1) == 1 and po_l.count(3) == 1:
+    for i in range(-1, len(po_l)-1):
+        if po_l[i] == 2 and po_l[i+1] == 4:
+            empty = si_st[i] * si_st[i+1]
+    total = si_st[po_l.index(1)] * si_st[po_l.index(3)]
+    ans = total - empty
 
-#최대 세로길이 구하기
-max_sero = -1
-for i in range(len(sero_list)):
-    if max_sero < sero_list[i][0]:
-        max_sero = sero_list[i][0]
+elif po_l.count(2) == 1 and po_l.count(3) == 1:
+    for i in range(-1, len(po_l)-1):
+        if po_l[i] == 4 and po_l[i+1] == 1:
+            empty = si_st[i] * si_st[i+1]
+    total = si_st[po_l.index(2)] * si_st[po_l.index(3)]
+    ans = total - empty
 
-#최대 가로 * 최대 세로
-total_area = max_garo * max_sero
-ans_area = total_area - empty
-ans = ans_area * N
-
-print(ans)
+print(ans * N)
