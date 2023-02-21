@@ -23,12 +23,9 @@ for i in can_num:
             #가장 적은 추천을 받은 후보자보다 게시된지 오래된 후보자가 있을때 => 가장 추천적은 후보자 맨 앞으로 옮기기
             else:
                 min_can = min(can_list, key=lambda x: x[1])
-                # print(2, min_can)
                 can_list.remove(min_can)
                 can_list.insert(0, min_can)
-                # print(3,can_list[0])
-                # print(4,min_can)
-                # print(5,can_list)
+
                 for j in range(N - 1):
                     can_list[j] = can_list[j + 1]
                 can_list[-1] = [i, 1]
@@ -43,9 +40,6 @@ for i in can_num:
         for j in range(len(can_list)):
             if i == can_list[j][0]:
                 can_list[j][1] += 1
-    # print(1, min(can_list, key=lambda x: x[1]))
-    # print(can_list)
-
 #출력형식 맞춰주기 : 학생 번호 오름차순 출력
 final = sorted(can_list, key=lambda x: x[0])
 #만약 0이 남아 있을 경우 0제거
