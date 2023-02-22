@@ -19,14 +19,14 @@ queue = deque()
 
 queue.append(R)
 visited[R] = 1
-visited_sort[R] = i
 
 i = 1
+visited_sort[R] = i
 
 while queue:
     t = queue.popleft()
 
-    for w in G[t]:
+    for w in new_G[t]:
         if not visited[w]:
             queue.append(w)
             visited[w] = 1

@@ -31,5 +31,6 @@ def bfs(graph, visited, start):
                 visited[i] = True
 
 bfs(sort_graph, visited, start)
+print(node)
 for i in range(1, N+1):
     print(node[i])
