@@ -6,6 +6,7 @@ visited = [False] * (N+1) #방문 지점 N+1개만큼 생성
 graph = [[] for _ in range(N+1)] #정점 N개에 대해 각 지점마다 지나가는 길 입력을 위한 배열 생성
 sort_graph = [[]]
 node = [0] * (N +1)
+
 for i in range(M): #M개의 간선 입력
     s, e = list(map(int, input().split()))
     graph[s].append(e)
