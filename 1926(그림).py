@@ -10,9 +10,14 @@ dy = [0, 0, -1, 1] #상하좌우
 
 def bfs(r, c):
     global picture
-    cnt = 1
+
+    if not picture[r][c]:
+        return 0
+
     queue.append((r, c))
     picture[r][c] = 0
+    cnt = 1
+
     while queue:
         x, y = queue.popleft()
 
@@ -25,20 +30,25 @@ def bfs(r, c):
                     picture[nx][ny] = 0
                     cnt += 1
     return cnt
-# print(bfs(0,0))
-# for line in picture:
-#     print(*line)
-# print(bfs(3,2))
+cont= 0
 max_size = 0
 for i in range(n):
     for j in range(m):
-        print(bfs(i,j))
-        # if bfs(i,j) > 1:
-        #     print(bfs(i,j))
-        #     if max_size < bfs(i,j):
-        #         max_size = bfs(i,j)
-        #         print(max_size)
-print(picture)
+        a = bfs(i,j)
+
+        if a:
+            cont += 1
+
+        if max_size < a:
+            max_size = a
+print(cont)
+print(max_size)
+
+
+
+
+
+
 
 # found_list = []
 # def dfs(x,y):
