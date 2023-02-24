@@ -1,3 +1,5 @@
+#safy
+
 from collections import deque
 N = int(input())
 land = [list(map(int, input().split())) for _ in range(N)]

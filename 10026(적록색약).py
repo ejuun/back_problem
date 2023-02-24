@@ -1,9 +1,10 @@
 from collections import deque
 import copy
+#weakness
 N = int(input())
 #기존 리스트 받기
 color = [list(map(str, input())) for _ in range(N)]
-#빨강색과 녹색이 같은 리스트 생성
+#빨강색과 녹색이 같은 리스트 생성d
 weakness = copy.deepcopy(color)
 for i in range(N):
     for j in range(N):
