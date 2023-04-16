@@ -27,8 +27,7 @@ def dijk(K):
                 heapq.heappush(q, (cost, i[0])) #그리고 그 거리와 다음 노드 위치를 저장
 
 dijk(K)
-
-for i in range(1, v+1):
+for i in range(1, V+1):
     if distance[i] == INF:
         print('INF')
     else:
