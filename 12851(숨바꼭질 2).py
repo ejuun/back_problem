@@ -4,11 +4,11 @@ visited = [100002] * 100001
 queue = deque()
 queue.append(N)
 visited[N] = 0
-ans = 0
+ans = 1
 
 if N == K:
-    print(0)
-    print(1)
+    print(visited[K])
+    print(ans)
 else:
     while queue:
         x = queue.popleft()
@@ -20,7 +20,6 @@ else:
                 if nx == K:
                     if visited[nx] == 100002:
                         visited[nx] = visited[x] + 1
-                        ans = 1
                     elif visited[x] + 1 == visited[K]:
                         ans += 1
                     continue
