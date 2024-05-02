@@ -10,8 +10,7 @@ for i in range(1, N+1):
     build = [i] + list(map(int, input().split()))
     build.pop()
     arr.append(build)
-arr.sort(key=lambda x : len(x))
-# print(arr)
+arr.sort(key=lambda x: len(x))
 
 queue = deque(arr)
 while queue:
@@ -32,5 +31,6 @@ while queue:
             queue.append(cmd)
         else:
             time[cmd[0]] = cmd[1] + temp
+
 for i in range(1, len(time)):
     print(time[i])
